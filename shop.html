@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jacqueline Moncayo - Zapatos</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="best.html">BEST SELLERS</a></li>
+        </ul>
+        <div class="logo" style="text-align: center;">
+          <small style="font-weight: lighter;">JACQUELINE</small><br />
+          MONCAYO
+        </div>
+        <ul>
+          <li><a href="shop.html">SHOP</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+        </ul>
+      </div>
+    </header>
+    <div class="hero"></div>
+    <main>
+      <!-- Filtros arriba, fuera de .products -->
+      <div
+        class="shop-filters-container"
+        style="max-width: 1200px; margin: 0 auto 30px auto;"
+      >
+        <button
+          id="btn-filtros"
+          class="btn-filtros"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-family: inherit;
+            cursor: pointer;
+            padding: 10px 0 10px 0;
+            outline: none;
+          "
+        >
+          <span style="display: inline-block; width: 28px; height: 20px;">
+            <span
+              style="
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: #444;
+                margin-bottom: 6px;
+              "
+            ></span>
+            <span
+              style="
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: #444;
+                margin-bottom: 6px;
+              "
+            ></span>
+            <span
+              style="
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: #444;
+              "
+            ></span>
+          </span>
+          <span style="font-style: italic; color: #444;">FILTROS</span>
+        </button>
+        <div
+          id="filtros-acordeon"
+          class="filtros-acordeon"
+          style="
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+          "
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 10px;
+            "
+          >
+            <span style="font-size: 1.2rem; font-weight: 600;">FILTROS</span>
+            <button
+              id="cerrar-filtros"
+              style="
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+              "
+            >
+              &times;
+            </button>
+          </div>
+          <div style="font-size: 0.95rem; color: #444; margin-bottom: 10px;">
+            *Nota: Para una mejor experiencia, te recomendamos que selecciones
+            tu talla primero.
+          </div>
+          <hr style="margin: 18px 0;" />
+          <div style="margin-bottom: 18px;">
+            <div style="font-weight: 600; margin-bottom: 6px;">Talla</div>
+            <div style="margin-bottom: 6px;">Calzado</div>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                max-width: 340px;
+              "
+            >
+              <button
+                class="btn-talla"
+                style="
+                  padding: 10px 0;
+                  border: 1px solid #bbb;
+                  background: #fff;
+                  border-radius: 6px;
+                  cursor: pointer;
+                  font-size: 1rem;
+                "
+              >
+                35
+              </button>
+              <button
+                class="btn-talla"
+                style="
+                  padding: 10px 0;
+                  border: 1px solid #bbb;
+                  background: #fff;
+                  border-radius: 6px;
+                  cursor: pointer;
+                  font-size: 1rem;
+                "
+              >
+                36
+              </button>
+              <button
+                class="btn-talla"
+                style="
+                  padding: 10px 0;
+                  border: 1px solid #bbb;
+                  background: #fff;
+                  border-radius: 6px;
+                  cursor: pointer;
+                  font-size: 1rem;
+                "
+              >
+                37
+              </button>
+              <button
+                class="btn-talla"
+                style="
+                  padding: 10px 0;
+                  border: 1px solid #bbb;
+                  background: #fff;
+                  border-radius: 6px;
+                  cursor: pointer;
+                  font-size: 1rem;
+                "
+              >
+                38
+              </button>
+              <button
+                class="btn-talla"
+                style="
+                  padding: 10px 0;
+                  border: 1px solid #bbb;
+                  background: #fff;
+                  border-radius: 6px;
+                  cursor: pointer;
+                  font-size: 1rem;
+                "
+              >
+                39
+              </button>
+              <button
+                class="btn-talla"
+                style="
+                  padding: 10px 0;
+                  border: 1px solid #bbb;
+                  background: #fff;
+                  border-radius: 6px;
+                  cursor: pointer;
+                  font-size: 1rem;
+                "
+              >
+                40
+              </button>
+              <button
+                class="btn-talla"
+                style="
+                  padding: 10px 0;
+                  border: 1px solid #bbb;
+                  background: #fff;
+                  border-radius: 6px;
+                  cursor: pointer;
+                  font-size: 1rem;
+                "
+              >
+                41
+              </button>
+              <button
+                class="btn-talla"
+                style="
+                  padding: 10px 0;
+                  border: 1px solid #bbb;
+                  background: #fff;
+                  border-radius: 6px;
+                  cursor: pointer;
+                  font-size: 1rem;
+                "
+              >
+                42
+              </button>
+              <button
+                class="btn-talla"
+                style="
+                  padding: 10px 0;
+                  border: 1px solid #bbb;
+                  background: #fff;
+                  border-radius: 6px;
+                  cursor: pointer;
+                  font-size: 1rem;
+                "
+              >
+                43
+              </button>
+              <button
+                class="btn-talla"
+                style="
+                  padding: 10px 0;
+                  border: 1px solid #bbb;
+                  background: #fff;
+                  border-radius: 6px;
+                  cursor: pointer;
+                  font-size: 1rem;
+                "
+              >
+                44
+              </button>
+              <button
+                class="btn-talla"
+                style="
+                  padding: 10px 0;
+                  border: 1px solid #bbb;
+                  background: #fff;
+                  border-radius: 6px;
+                  cursor: pointer;
+                  font-size: 1rem;
+                "
+              >
+                45
+              </button>
+              <button
+                class="btn-talla"
+                style="
+                  padding: 10px 0;
+                  border: 1px solid #bbb;
+                  background: #fff;
+                  border-radius: 6px;
+                  cursor: pointer;
+                  font-size: 1rem;
+                "
+              >
+                46
+              </button>
+            </div>
+          </div>
+          <hr style="margin: 18px 0;" />
+          <div style="margin-bottom: 18px;">
+            <div style="font-weight: 600; margin-bottom: 6px;">
+              Tipo de producto
+            </div>
+            <div style="margin-bottom: 8px;">
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  font-size: 1rem;
+                "
+              >
+                <input
+                  type="checkbox"
+                  name="tipo"
+                  value="todo"
+                  style="accent-color: #222;"
+                />
+                Ver todo
+              </label>
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  font-size: 1rem;
+                "
+              >
+                <input
+                  type="checkbox"
+                  name="tipo"
+                  value="zapatillas"
+                  style="accent-color: #222;"
+                />
+                Zapatillas
+              </label>
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  font-size: 1rem;
+                "
+              >
+                <input
+                  type="checkbox"
+                  name="tipo"
+                  value="sandalias"
+                  style="accent-color: #222;"
+                />
+                Sandalias
+              </label>
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  font-size: 1rem;
+                "
+              >
+                <input
+                  type="checkbox"
+                  name="tipo"
+                  value="botines"
+                  style="accent-color: #222;"
+                />
+                Botines
+              </label>
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                  font-size: 1rem;
+                "
+              >
+                <input
+                  type="checkbox"
+                  name="tipo"
+                  value="tacones"
+                  style="accent-color: #222;"
+                />
+                Tacones
+              </label>
+            </div>
+          </div>
+          <div style="display: flex; gap: 10px; margin-top: 18px;">
+            <button
+              id="eliminar-filtros"
+              style="
+                flex: 1;
+                background: #f5f5f5;
+                color: #bbb;
+                border: none;
+                padding: 12px 0;
+                border-radius: 6px;
+                font-size: 1rem;
+                cursor: not-allowed;
+              "
+            >
+              Eliminar todo
+            </button>
+            <button
+              id="ver-productos"
+              style="
+                flex: 2;
+                background: #222;
+                color: #fff;
+                border: none;
+                padding: 12px 0;
+                border-radius: 6px;
+                font-size: 1.1rem;
+                font-weight: 600;
+                cursor: pointer;
+              "
+            >
+              Ver productos
+            </button>
+          </div>
+        </div>
+        <hr style="margin: 18px 0 30px 0;" />
+      </div>
+      <!-- Productos en su grilla original -->
+      <section class="products">
+        <div class="product-card">
+          <img src="/img/z-1.png" alt="Tacón dorado lujo" />
+          <div class="product-info">
+            <div class="product-title">VALDÉS BARROCO</div>
+            <div class="product-desc">LAMINADO ORO TORO BAJO</div>
+            <div class="product-size">SIZE AVAILABLE<br />6, 8, 9</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="/img/z-2.png" alt="Sandalia roja lujo" />
+          <div class="product-info">
+            <div class="product-title">SANDALIA ROJA</div>
+            <div class="product-desc">GAMUZA ROJA PREMIUM</div>
+            <div class="product-size">SIZE AVAILABLE<br />5, 6, 7</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="/img/z-3.png" alt="Stiletto negro lujo" />
+          <div class="product-info">
+            <div class="product-title">STILETTO NEGRO</div>
+            <div class="product-desc">CHAROL NEGRO</div>
+            <div class="product-size">SIZE AVAILABLE<br />6, 7, 8</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="/img/z-4.png" alt="Tacón nude lujo" />
+          <div class="product-info">
+            <div class="product-title">TACÓN NUDE</div>
+            <div class="product-desc">PIEL NATURAL</div>
+            <div class="product-size">SIZE AVAILABLE<br />5, 8, 9</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="/img/z-1.png" alt="Sandalia dorada lujo" />
+          <div class="product-info">
+            <div class="product-title">SANDALIA DORADA</div>
+            <div class="product-desc">LAMINADO ORO</div>
+            <div class="product-size">SIZE AVAILABLE<br />6, 7, 9</div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="/img/z-2.png" alt="Zapato blanco lujo" />
+          <div class="product-info">
+            <div class="product-title">ZAPATO BLANCO</div>
+            <div class="product-desc">PIEL BLANCA</div>
+            <div class="product-size">SIZE AVAILABLE<br />5, 6, 8</div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-links">
+        <a href="#">CONTACT US</a>
+        <a href="#">SHOE CHART</a>
+        <a href="#">SHIPPINGS</a>
+        <a href="#">FOLLOW US ON IG</a>
+      </div>
+      <div class="copyright">
+        COPYRIGHT © 2025 JACQUELINE MONCAYO Todos los derechos reservados
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
