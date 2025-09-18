@@ -1,3 +1,13 @@
+// Initialize Lenis
+const lenis = new Lenis({
+  autoRaf: true,
+});
+
+// Listen for the scroll event and log the event data
+lenis.on("scroll", (e) => {
+  console.log(e);
+});
+
 // Cambia el tamaño del header al hacer scroll
 window.addEventListener("scroll", function () {
   const header = document.querySelector("header");
