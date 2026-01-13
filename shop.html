@@ -15,7 +15,9 @@
       <div class="navbar">
         <ul>
           <li><a href="index.html">HOME</a></li>
-          <li><a href="best.html">BEST SELLERS</a></li>
+          <!-- <li><a href="best.html">BEST SELLERS</a></li> -->
+          <li><a href="shop.html">SHOP</a></li>
+          <li><a href="about.html">ABOUT</a></li>
         </ul>
         <div class="logo" style="text-align: center;">
           <img
@@ -24,442 +26,217 @@
             style="height: 60px;"
           />
         </div>
-        <ul>
-          <li><a href="shop.html">SHOP</a></li>
-          <li><a href="about.html">ABOUT</a></li>
-        </ul>
       </div>
     </header>
     <div class="hero"></div>
-    <main>
-      <!-- Filtros arriba, fuera de .products -->
-      <div
-        class="shop-filters-container"
-        style="max-width: 1200px; margin: 0 auto 30px auto;"
-      >
-        <button
-          id="btn-filtros"
-          class="btn-filtros"
-          style="
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: none;
-            border: none;
-            font-size: 1.1rem;
-            font-family: inherit;
-            cursor: pointer;
-            padding: 10px 0 10px 0;
-            outline: none;
-          "
-        >
-          <span style="display: inline-block; width: 28px; height: 20px;">
-            <span
-              style="
-                display: block;
-                width: 100%;
-                height: 2px;
-                background: #444;
-                margin-bottom: 6px;
-              "
-            ></span>
-            <span
-              style="
-                display: block;
-                width: 100%;
-                height: 2px;
-                background: #444;
-                margin-bottom: 6px;
-              "
-            ></span>
-            <span
-              style="
-                display: block;
-                width: 100%;
-                height: 2px;
-                background: #444;
-              "
-            ></span>
-          </span>
-          <span style="font-style: italic; color: #444;">FILTROS</span>
-        </button>
-        <div
-          id="filtros-acordeon"
-          class="filtros-acordeon"
-          style="
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-          "
-        >
-          <div
-            style="
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              margin-bottom: 10px;
-            "
-          >
-            <span style="font-size: 1.2rem; font-weight: 600;">FILTROS</span>
-            <button
-              id="cerrar-filtros"
-              style="
-                background: none;
-                border: none;
-                font-size: 1.5rem;
-                cursor: pointer;
-              "
-            >
-              &times;
-            </button>
+    <main class="content">
+      <!-- Productos con diseño dinámico -->
+      <section class="shop-products-dynamic">
+        <!-- Sección Hero de productos destacados -->
+        <div class="featured-products-hero">
+          <div class="hero-product-large">
+            <a href="product.html" class="product-link">
+              <div class="product-card hero-card">
+                <img
+                  src="img/Copia de MDF11589.jpg"
+                  alt="Tacón elegante premium"
+                />
+                <div class="product-info">
+                  <div class="product-title">ELEGANCE PREMIUM</div>
+                  <div class="product-desc">DISEÑO EXCLUSIVO</div>
+                  <div class="product-size">SIZE AVAILABLE<br />6, 7, 8, 9</div>
+                </div>
+              </div>
+            </a>
           </div>
-          <div style="font-size: 0.95rem; color: #444; margin-bottom: 10px;">
-            *Nota: Para una mejor experiencia, te recomendamos que selecciones
-            tu talla primero.
+          <div class="hero-products-side">
+            <a href="product.html" class="product-link">
+              <div class="product-card">
+                <img src="img/z-1.webp" alt="Tacón dorado lujo" />
+                <div class="product-info">
+                  <div class="product-title">VALDÉS BARROCO</div>
+                  <div class="product-desc">LAMINADO ORO TORO BAJO</div>
+                  <div class="product-size">SIZE AVAILABLE<br />6, 8, 9</div>
+                </div>
+              </div>
+            </a>
+            <a href="product.html" class="product-link">
+              <div class="product-card">
+                <img src="img/z-2.webp" alt="Sandalia roja lujo" />
+                <div class="product-info">
+                  <div class="product-title">SANDALIA ROJA</div>
+                  <div class="product-desc">GAMUZA ROJA PREMIUM</div>
+                  <div class="product-size">SIZE AVAILABLE<br />5, 6, 7</div>
+                </div>
+              </div>
+            </a>
           </div>
-          <hr style="margin: 18px 0;" />
-          <div style="margin-bottom: 18px;">
-            <div style="font-weight: 600; margin-bottom: 6px;">Talla</div>
-            <div style="margin-bottom: 6px;">Calzado</div>
-            <div
-              style="
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-                max-width: 340px;
-              "
-            >
-              <button
-                class="btn-talla"
-                style="
-                  padding: 10px 0;
-                  border: 1px solid #bbb;
-                  background: #fff;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-size: 1rem;
-                "
-              >
-                35
-              </button>
-              <button
-                class="btn-talla"
-                style="
-                  padding: 10px 0;
-                  border: 1px solid #bbb;
-                  background: #fff;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-size: 1rem;
-                "
-              >
-                36
-              </button>
-              <button
-                class="btn-talla"
-                style="
-                  padding: 10px 0;
-                  border: 1px solid #bbb;
-                  background: #fff;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-size: 1rem;
-                "
-              >
-                37
-              </button>
-              <button
-                class="btn-talla"
-                style="
-                  padding: 10px 0;
-                  border: 1px solid #bbb;
-                  background: #fff;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-size: 1rem;
-                "
-              >
-                38
-              </button>
-              <button
-                class="btn-talla"
-                style="
-                  padding: 10px 0;
-                  border: 1px solid #bbb;
-                  background: #fff;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-size: 1rem;
-                "
-              >
-                39
-              </button>
-              <button
-                class="btn-talla"
-                style="
-                  padding: 10px 0;
-                  border: 1px solid #bbb;
-                  background: #fff;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-size: 1rem;
-                "
-              >
-                40
-              </button>
-              <button
-                class="btn-talla"
-                style="
-                  padding: 10px 0;
-                  border: 1px solid #bbb;
-                  background: #fff;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-size: 1rem;
-                "
-              >
-                41
-              </button>
-              <button
-                class="btn-talla"
-                style="
-                  padding: 10px 0;
-                  border: 1px solid #bbb;
-                  background: #fff;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-size: 1rem;
-                "
-              >
-                42
-              </button>
-              <button
-                class="btn-talla"
-                style="
-                  padding: 10px 0;
-                  border: 1px solid #bbb;
-                  background: #fff;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-size: 1rem;
-                "
-              >
-                43
-              </button>
-              <button
-                class="btn-talla"
-                style="
-                  padding: 10px 0;
-                  border: 1px solid #bbb;
-                  background: #fff;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-size: 1rem;
-                "
-              >
-                44
-              </button>
-              <button
-                class="btn-talla"
-                style="
-                  padding: 10px 0;
-                  border: 1px solid #bbb;
-                  background: #fff;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-size: 1rem;
-                "
-              >
-                45
-              </button>
-              <button
-                class="btn-talla"
-                style="
-                  padding: 10px 0;
-                  border: 1px solid #bbb;
-                  background: #fff;
-                  border-radius: 6px;
-                  cursor: pointer;
-                  font-size: 1rem;
-                "
-              >
-                46
-              </button>
+        </div>
+
+        <!-- Galería principal con grid asimétrico -->
+        <div class="products-asymmetric-grid">
+          <a href="product.html" class="product-link">
+            <div class="product-card card-wide">
+              <img src="img/Copia de MDF11594.jpg" alt="Zapato elegante" />
+              <div class="product-info">
+                <div class="product-title">METROPOLITAN</div>
+                <div class="product-desc">PIEL PREMIUM</div>
+                <div class="product-size">SIZE AVAILABLE<br />5, 6, 7, 8</div>
+              </div>
             </div>
-          </div>
-          <hr style="margin: 18px 0;" />
-          <div style="margin-bottom: 18px;">
-            <div style="font-weight: 600; margin-bottom: 6px;">
-              Tipo de producto
+          </a>
+          <a href="product.html" class="product-link">
+            <div class="product-card">
+              <img src="img/z-3.webp" alt="Stiletto negro lujo" />
+              <div class="product-info">
+                <div class="product-title">STILETTO NEGRO</div>
+                <div class="product-desc">CHAROL NEGRO</div>
+                <div class="product-size">SIZE AVAILABLE<br />6, 7, 8</div>
+              </div>
             </div>
-            <div style="margin-bottom: 8px;">
-              <label
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: 8px;
-                  font-size: 1rem;
-                "
-              >
-                <input
-                  type="checkbox"
-                  name="tipo"
-                  value="todo"
-                  style="accent-color: #222;"
-                />
-                Ver todo
-              </label>
-              <label
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: 8px;
-                  font-size: 1rem;
-                "
-              >
-                <input
-                  type="checkbox"
-                  name="tipo"
-                  value="zapatillas"
-                  style="accent-color: #222;"
-                />
-                Zapatillas
-              </label>
-              <label
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: 8px;
-                  font-size: 1rem;
-                "
-              >
-                <input
-                  type="checkbox"
-                  name="tipo"
-                  value="sandalias"
-                  style="accent-color: #222;"
-                />
-                Sandalias
-              </label>
-              <label
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: 8px;
-                  font-size: 1rem;
-                "
-              >
-                <input
-                  type="checkbox"
-                  name="tipo"
-                  value="botines"
-                  style="accent-color: #222;"
-                />
-                Botines
-              </label>
-              <label
-                style="
-                  display: flex;
-                  align-items: center;
-                  gap: 8px;
-                  font-size: 1rem;
-                "
-              >
-                <input
-                  type="checkbox"
-                  name="tipo"
-                  value="tacones"
-                  style="accent-color: #222;"
-                />
-                Tacones
-              </label>
+          </a>
+          <a href="product.html" class="product-link">
+            <div class="product-card">
+              <img src="img/Copia de MDF11603.jpg" alt="Tacón sofisticado" />
+              <div class="product-info">
+                <div class="product-title">SOPHISTIQUE</div>
+                <div class="product-desc">ACABADO MATE</div>
+                <div class="product-size">SIZE AVAILABLE<br />6, 7, 9</div>
+              </div>
             </div>
+          </a>
+          <a href="product.html" class="product-link">
+            <div class="product-card card-tall">
+              <img src="img/Copia de MDF11857.jpg" alt="Botín premium" />
+              <div class="product-info">
+                <div class="product-title">URBAN CHIC</div>
+                <div class="product-desc">DISEÑO URBANO</div>
+                <div class="product-size">SIZE AVAILABLE<br />5, 6, 8, 9</div>
+              </div>
+            </div>
+          </a>
+          <a href="product.html" class="product-link">
+            <div class="product-card">
+              <img src="img/z-4.webp" alt="Tacón nude lujo" />
+              <div class="product-info">
+                <div class="product-title">TACÓN NUDE</div>
+                <div class="product-desc">PIEL NATURAL</div>
+                <div class="product-size">SIZE AVAILABLE<br />5, 8, 9</div>
+              </div>
+            </div>
+          </a>
+          <a href="product.html" class="product-link">
+            <div class="product-card">
+              <img src="img/Copia de MDF11861.jpg" alt="Zapato clásico" />
+              <div class="product-info">
+                <div class="product-title">CLASSIC ELITE</div>
+                <div class="product-desc">LÍNEA CLÁSICA</div>
+                <div class="product-size">SIZE AVAILABLE<br />6, 7, 8</div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Sección de productos en mosaico -->
+        <div class="products-mosaic">
+          <div class="mosaic-row">
+            <a href="product.html" class="product-link">
+              <div class="product-card mosaic-small">
+                <img src="img/Copia de MDF11872.jpg" alt="Sandalia elegante" />
+                <div class="product-info">
+                  <div class="product-title">SUMMER GLOW</div>
+                  <div class="product-desc">COLECCIÓN VERANO</div>
+                  <div class="product-size">SIZE AVAILABLE<br />5, 6, 7</div>
+                </div>
+              </div>
+            </a>
+            <a href="product.html" class="product-link">
+              <div class="product-card mosaic-medium">
+                <img src="img/Copia de MDF11875.jpg" alt="Tacón moderno" />
+                <div class="product-info">
+                  <div class="product-title">MODERN EDGE</div>
+                  <div class="product-desc">DISEÑO CONTEMPORÁNEO</div>
+                  <div class="product-size">SIZE AVAILABLE<br />6, 8, 9</div>
+                </div>
+              </div>
+            </a>
+            <a href="product.html" class="product-link">
+              <div class="product-card mosaic-small">
+                <img src="img/Copia de MDF11932.jpg" alt="Zapato exclusivo" />
+                <div class="product-info">
+                  <div class="product-title">EXCLUSIVE LINE</div>
+                  <div class="product-desc">EDICIÓN LIMITADA</div>
+                  <div class="product-size">SIZE AVAILABLE<br />6, 7, 8, 9</div>
+                </div>
+              </div>
+            </a>
           </div>
-          <div style="display: flex; gap: 10px; margin-top: 18px;">
-            <button
-              id="eliminar-filtros"
-              style="
-                flex: 1;
-                background: #f5f5f5;
-                color: #bbb;
-                border: none;
-                padding: 12px 0;
-                border-radius: 6px;
-                font-size: 1rem;
-                cursor: not-allowed;
-              "
-            >
-              Eliminar todo
-            </button>
-            <button
-              id="ver-productos"
-              style="
-                flex: 2;
-                background: #222;
-                color: #fff;
-                border: none;
-                padding: 12px 0;
-                border-radius: 6px;
-                font-size: 1.1rem;
-                font-weight: 600;
-                cursor: pointer;
-              "
-            >
-              Ver productos
-            </button>
+          <div class="mosaic-row">
+            <a href="product.html" class="product-link">
+              <div class="product-card mosaic-large">
+                <img src="img/Copia de MDF11942.jpg" alt="Tacón statement" />
+                <div class="product-info">
+                  <div class="product-title">STATEMENT PIECE</div>
+                  <div class="product-desc">MÁXIMA ELEGANCIA</div>
+                  <div class="product-size">SIZE AVAILABLE<br />5, 6, 7, 8</div>
+                </div>
+              </div>
+            </a>
+            <a href="product.html" class="product-link">
+              <div class="product-card">
+                <img src="img/Copia de MDF11949.jpg" alt="Sandalia premium" />
+                <div class="product-info">
+                  <div class="product-title">PREMIUM COMFORT</div>
+                  <div class="product-desc">MÁXIMO CONFORT</div>
+                  <div class="product-size">SIZE AVAILABLE<br />6, 7, 9</div>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
-        <hr style="margin: 18px 0 30px 0;" />
-      </div>
-      <!-- Productos en su grilla original -->
-      <section class="products">
-        <div class="product-card">
-          <img src="img/z-1.webp" alt="Tacón dorado lujo" />
-          <div class="product-info">
-            <div class="product-title">VALDÉS BARROCO</div>
-            <div class="product-desc">LAMINADO ORO TORO BAJO</div>
-            <div class="product-size">SIZE AVAILABLE<br />6, 8, 9</div>
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="img/z-2.webp" alt="Sandalia roja lujo" />
-          <div class="product-info">
-            <div class="product-title">SANDALIA ROJA</div>
-            <div class="product-desc">GAMUZA ROJA PREMIUM</div>
-            <div class="product-size">SIZE AVAILABLE<br />5, 6, 7</div>
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="img/z-3.webp" alt="Stiletto negro lujo" />
-          <div class="product-info">
-            <div class="product-title">STILETTO NEGRO</div>
-            <div class="product-desc">CHAROL NEGRO</div>
-            <div class="product-size">SIZE AVAILABLE<br />6, 7, 8</div>
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="img/z-4.webp" alt="Tacón nude lujo" />
-          <div class="product-info">
-            <div class="product-title">TACÓN NUDE</div>
-            <div class="product-desc">PIEL NATURAL</div>
-            <div class="product-size">SIZE AVAILABLE<br />5, 8, 9</div>
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="img/z-1.webp" alt="Sandalia dorada lujo" />
-          <div class="product-info">
-            <div class="product-title">SANDALIA DORADA</div>
-            <div class="product-desc">LAMINADO ORO</div>
-            <div class="product-size">SIZE AVAILABLE<br />6, 7, 9</div>
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="img/z-2.webp" alt="Zapato blanco lujo" />
-          <div class="product-info">
-            <div class="product-title">ZAPATO BLANCO</div>
-            <div class="product-desc">PIEL BLANCA</div>
-            <div class="product-size">SIZE AVAILABLE<br />5, 6, 8</div>
-          </div>
+
+        <!-- Productos adicionales en grid tradicional -->
+        <div class="products-traditional-grid">
+          <a href="product.html" class="product-link">
+            <div class="product-card">
+              <img src="img/Copia de MDF11954.jpg" alt="Zapato refinado" />
+              <div class="product-info">
+                <div class="product-title">REFINED LUXURY</div>
+                <div class="product-desc">LUJO REFINADO</div>
+                <div class="product-size">SIZE AVAILABLE<br />5, 6, 8</div>
+              </div>
+            </div>
+          </a>
+          <a href="product.html" class="product-link">
+            <div class="product-card">
+              <img src="img/Copia de MDF12538.jpg" alt="Botín moderno" />
+              <div class="product-info">
+                <div class="product-title">MODERN BOOT</div>
+                <div class="product-desc">ESTILO MODERNO</div>
+                <div class="product-size">SIZE AVAILABLE<br />6, 7, 8, 9</div>
+              </div>
+            </div>
+          </a>
+          <a href="product.html" class="product-link">
+            <div class="product-card">
+              <img src="img/Copia de MDF12549.jpg" alt="Tacón glamour" />
+              <div class="product-info">
+                <div class="product-title">GLAMOUR NIGHT</div>
+                <div class="product-desc">NOCHE DE GALA</div>
+                <div class="product-size">SIZE AVAILABLE<br />5, 7, 8</div>
+              </div>
+            </div>
+          </a>
+          <a href="product.html" class="product-link">
+            <div class="product-card">
+              <img src="img/Copia de MDF12553.jpg" alt="Sandalia chic" />
+              <div class="product-info">
+                <div class="product-title">CHIC SUMMER</div>
+                <div class="product-desc">VERANO ELEGANTE</div>
+                <div class="product-size">SIZE AVAILABLE<br />6, 7, 8, 9</div>
+              </div>
+            </div>
+          </a>
         </div>
       </section>
     </main>

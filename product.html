@@ -15,7 +15,7 @@
       <div class="navbar">
         <ul>
           <li><a href="index.html">HOME</a></li>
-          <li><a href="best.html">BEST SELLERS</a></li>
+          <!-- <li><a href="best.html">BEST SELLERS</a></li> -->
         </ul>
         <div class="logo" style="text-align: center;">
           <img
@@ -33,9 +33,16 @@
     <div class="hero"></div>
     <main>
       <!-- Breadcrumb -->
-      <div class="breadcrumb" style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">
-        <a href="index.html" style="color: #666; text-decoration: none;">Home</a> / 
-        <a href="shop.html" style="color: #666; text-decoration: none;">Shop</a> / 
+      <div
+        class="breadcrumb"
+        style="font-size: 0.9rem; color: #666; margin-bottom: 20px;"
+      >
+        <a href="index.html" style="color: #666; text-decoration: none;"
+          >Home</a
+        >
+        /
+        <a href="shop.html" style="color: #666; text-decoration: none;">Shop</a>
+        /
         <span style="color: #222;">Brigitte 100mm</span>
       </div>
 
@@ -44,45 +51,119 @@
         <!-- Left: Images -->
         <div class="product-images">
           <div class="main-image">
-            <img id="mainProductImage" src="img/z-3.webp" alt="Brigitte 100mm Black Patent Leather" />
+            <img
+              id="mainProductImage"
+              src="img/z-3.webp"
+              alt="Brigitte 100mm Black Patent Leather"
+            />
           </div>
           <div class="thumbnail-images">
-            <img class="thumbnail active" src="img/z-3.webp" alt="Vista 1" onclick="changeMainImage('img/z-3.webp')" />
-            <img class="thumbnail" src="img/z-1.webp" alt="Vista 2" onclick="changeMainImage('img/z-1.webp')" />
-            <img class="thumbnail" src="img/z-2.webp" alt="Vista 3" onclick="changeMainImage('img/z-2.webp')" />
-            <img class="thumbnail" src="img/z-4.webp" alt="Vista 4" onclick="changeMainImage('img/z-4.webp')" />
+            <img
+              class="thumbnail active"
+              src="img/z-3.webp"
+              alt="Vista 1"
+              onclick="changeMainImage('img/z-3.webp')"
+            />
+            <img
+              class="thumbnail"
+              src="img/z-1.webp"
+              alt="Vista 2"
+              onclick="changeMainImage('img/z-1.webp')"
+            />
+            <img
+              class="thumbnail"
+              src="img/z-2.webp"
+              alt="Vista 3"
+              onclick="changeMainImage('img/z-2.webp')"
+            />
+            <img
+              class="thumbnail"
+              src="img/z-4.webp"
+              alt="Vista 4"
+              onclick="changeMainImage('img/z-4.webp')"
+            />
           </div>
         </div>
 
         <!-- Right: Product Info -->
         <div class="product-details-info">
-          <div class="product-tag" style="font-size: 0.85rem; color: #666; margin-bottom: 8px;">
+          <div
+            class="product-tag"
+            style="font-size: 0.85rem; color: #666; margin-bottom: 8px;"
+          >
             New Season
           </div>
-          
+
           <h1 class="product-detail-title">Brigitte 100mm</h1>
-          
-          <div class="product-detail-subtitle" style="font-size: 1rem; color: #666; margin-bottom: 20px;">
+
+          <div
+            class="product-detail-subtitle"
+            style="font-size: 1rem; color: #666; margin-bottom: 20px;"
+          >
             Black Patent Leather Pumps
           </div>
 
-          <div class="product-price" style="font-size: 1.8rem; font-weight: 600; margin-bottom: 30px;">
+          <div
+            class="product-price"
+            style="font-size: 1.8rem; font-weight: 600; margin-bottom: 30px;"
+          >
             $875
           </div>
 
           <!-- Color Selection -->
           <div class="color-section" style="margin-bottom: 30px;">
-            <div style="font-weight: 600; margin-bottom: 12px; font-size: 0.95rem;">
+            <div
+              style="font-weight: 600; margin-bottom: 12px; font-size: 0.95rem;"
+            >
               Color: <span id="selectedColor">Black</span>
             </div>
             <div class="color-options" style="display: flex; gap: 12px;">
-              <button class="color-btn active" data-color="Black" onclick="selectColor('Black', this)" style="width: 50px; height: 50px; border: 2px solid #222; background: #000; border-radius: 4px; cursor: pointer; position: relative;">
+              <button
+                class="color-btn active"
+                data-color="Black"
+                onclick="selectColor('Black', this)"
+                style="
+                  width: 50px;
+                  height: 50px;
+                  border: 2px solid #222;
+                  background: #000;
+                  border-radius: 4px;
+                  cursor: pointer;
+                  position: relative;
+                "
+              >
                 <span class="color-checkmark">✓</span>
               </button>
-              <button class="color-btn" data-color="Nude" onclick="selectColor('Nude', this)" style="width: 50px; height: 50px; border: 1px solid #ddd; background: #f5e6d3; border-radius: 4px; cursor: pointer; position: relative;">
+              <button
+                class="color-btn"
+                data-color="Nude"
+                onclick="selectColor('Nude', this)"
+                style="
+                  width: 50px;
+                  height: 50px;
+                  border: 1px solid #ddd;
+                  background: #f5e6d3;
+                  border-radius: 4px;
+                  cursor: pointer;
+                  position: relative;
+                "
+              >
                 <span class="color-checkmark" style="display: none;">✓</span>
               </button>
-              <button class="color-btn" data-color="Red" onclick="selectColor('Red', this)" style="width: 50px; height: 50px; border: 1px solid #ddd; background: #c41e3a; border-radius: 4px; cursor: pointer; position: relative;">
+              <button
+                class="color-btn"
+                data-color="Red"
+                onclick="selectColor('Red', this)"
+                style="
+                  width: 50px;
+                  height: 50px;
+                  border: 1px solid #ddd;
+                  background: #c41e3a;
+                  border-radius: 4px;
+                  cursor: pointer;
+                  position: relative;
+                "
+              >
                 <span class="color-checkmark" style="display: none;">✓</span>
               </button>
             </div>
@@ -90,29 +171,160 @@
 
           <!-- Size Selection -->
           <div class="size-section" style="margin-bottom: 30px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 12px;
+              "
+            >
               <div style="font-weight: 600; font-size: 0.95rem;">Size: EU</div>
-              <a href="#" style="font-size: 0.9rem; color: #666; text-decoration: underline;">Size Guide</a>
+              <a
+                href="#"
+                style="
+                  font-size: 0.9rem;
+                  color: #666;
+                  text-decoration: underline;
+                "
+                >Size Guide</a
+              >
             </div>
-            <div class="size-grid" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 10px;">
-              <button class="size-btn" data-size="34" onclick="selectSize('34', this)">34</button>
-              <button class="size-btn" data-size="34.5" onclick="selectSize('34.5', this)">34.5</button>
-              <button class="size-btn" data-size="35" onclick="selectSize('35', this)">35</button>
-              <button class="size-btn" data-size="35.5" onclick="selectSize('35.5', this)">35.5</button>
-              <button class="size-btn" data-size="36" onclick="selectSize('36', this)">36</button>
-              <button class="size-btn" data-size="36.5" onclick="selectSize('36.5', this)">36.5</button>
-              <button class="size-btn" data-size="37" onclick="selectSize('37', this)">37</button>
-              <button class="size-btn" data-size="37.5" onclick="selectSize('37.5', this)">37.5</button>
-              <button class="size-btn" data-size="38" onclick="selectSize('38', this)">38</button>
-              <button class="size-btn" data-size="38.5" onclick="selectSize('38.5', this)">38.5</button>
-              <button class="size-btn" data-size="39" onclick="selectSize('39', this)">39</button>
-              <button class="size-btn" data-size="39.5" onclick="selectSize('39.5', this)">39.5</button>
-              <button class="size-btn" data-size="40" onclick="selectSize('40', this)">40</button>
-              <button class="size-btn" data-size="40.5" onclick="selectSize('40.5', this)">40.5</button>
-              <button class="size-btn" data-size="41" onclick="selectSize('41', this)">41</button>
-              <button class="size-btn" data-size="41.5" onclick="selectSize('41.5', this)">41.5</button>
-              <button class="size-btn" data-size="42" onclick="selectSize('42', this)">42</button>
-              <button class="size-btn" data-size="43" onclick="selectSize('43', this)">43</button>
+            <div
+              class="size-grid"
+              style="
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                gap: 10px;
+                margin-bottom: 10px;
+              "
+            >
+              <button
+                class="size-btn"
+                data-size="34"
+                onclick="selectSize('34', this)"
+              >
+                34
+              </button>
+              <button
+                class="size-btn"
+                data-size="34.5"
+                onclick="selectSize('34.5', this)"
+              >
+                34.5
+              </button>
+              <button
+                class="size-btn"
+                data-size="35"
+                onclick="selectSize('35', this)"
+              >
+                35
+              </button>
+              <button
+                class="size-btn"
+                data-size="35.5"
+                onclick="selectSize('35.5', this)"
+              >
+                35.5
+              </button>
+              <button
+                class="size-btn"
+                data-size="36"
+                onclick="selectSize('36', this)"
+              >
+                36
+              </button>
+              <button
+                class="size-btn"
+                data-size="36.5"
+                onclick="selectSize('36.5', this)"
+              >
+                36.5
+              </button>
+              <button
+                class="size-btn"
+                data-size="37"
+                onclick="selectSize('37', this)"
+              >
+                37
+              </button>
+              <button
+                class="size-btn"
+                data-size="37.5"
+                onclick="selectSize('37.5', this)"
+              >
+                37.5
+              </button>
+              <button
+                class="size-btn"
+                data-size="38"
+                onclick="selectSize('38', this)"
+              >
+                38
+              </button>
+              <button
+                class="size-btn"
+                data-size="38.5"
+                onclick="selectSize('38.5', this)"
+              >
+                38.5
+              </button>
+              <button
+                class="size-btn"
+                data-size="39"
+                onclick="selectSize('39', this)"
+              >
+                39
+              </button>
+              <button
+                class="size-btn"
+                data-size="39.5"
+                onclick="selectSize('39.5', this)"
+              >
+                39.5
+              </button>
+              <button
+                class="size-btn"
+                data-size="40"
+                onclick="selectSize('40', this)"
+              >
+                40
+              </button>
+              <button
+                class="size-btn"
+                data-size="40.5"
+                onclick="selectSize('40.5', this)"
+              >
+                40.5
+              </button>
+              <button
+                class="size-btn"
+                data-size="41"
+                onclick="selectSize('41', this)"
+              >
+                41
+              </button>
+              <button
+                class="size-btn"
+                data-size="41.5"
+                onclick="selectSize('41.5', this)"
+              >
+                41.5
+              </button>
+              <button
+                class="size-btn"
+                data-size="42"
+                onclick="selectSize('42', this)"
+              >
+                42
+              </button>
+              <button
+                class="size-btn"
+                data-size="43"
+                onclick="selectSize('43', this)"
+              >
+                43
+              </button>
             </div>
             <div style="font-size: 0.85rem; color: #666; font-style: italic;">
               Italian sizing. Fits true to size.
@@ -120,19 +332,58 @@
           </div>
 
           <!-- Add to Cart Button -->
-          <button class="btn-add-cart" onclick="addToCart()" style="width: 100%; padding: 16px; background: #222; color: #fff; border: none; font-size: 1rem; font-weight: 600; letter-spacing: 1px; cursor: pointer; margin-bottom: 20px; border-radius: 4px; transition: background 0.3s;">
+          <button
+            class="btn-add-cart"
+            onclick="addToCart()"
+            style="
+              width: 100%;
+              padding: 16px;
+              background: #222;
+              color: #fff;
+              border: none;
+              font-size: 1rem;
+              font-weight: 600;
+              letter-spacing: 1px;
+              cursor: pointer;
+              margin-bottom: 20px;
+              border-radius: 4px;
+              transition: background 0.3s;
+            "
+          >
             SELECT SIZE
           </button>
 
           <!-- Shipping Info -->
-          <div class="shipping-info" style="padding: 16px; background: #f9f9f9; border-radius: 4px; margin-bottom: 20px;">
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+          <div
+            class="shipping-info"
+            style="
+              padding: 16px;
+              background: #f9f9f9;
+              border-radius: 4px;
+              margin-bottom: 20px;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 8px;
+              "
+            >
               <span style="font-size: 1.2rem;">📦</span>
-              <span style="font-weight: 600;">FREE 2-Day Shipping & Free Returns</span>
+              <span style="font-weight: 600;"
+                >FREE 2-Day Shipping & Free Returns</span
+              >
             </div>
             <div style="font-size: 0.9rem; color: #666;">
-              <a href="#" style="color: #222; text-decoration: underline;">Learn More</a> | 
-              <a href="#" style="color: #222; text-decoration: underline;">Sign In</a>
+              <a href="#" style="color: #222; text-decoration: underline;"
+                >Learn More</a
+              >
+              |
+              <a href="#" style="color: #222; text-decoration: underline;"
+                >Sign In</a
+              >
             </div>
           </div>
 
@@ -145,13 +396,15 @@
               </button>
               <div class="accordion-content">
                 <p style="line-height: 1.7; color: #666;">
-                  El modelo Brigitte 100mm es un zapato de tacón clásico elaborado en charol negro de alta calidad. 
-                  Su silueta atemporal y elegante lo convierte en la pieza perfecta para cualquier ocasión especial.
-                  <br><br>
-                  • Altura del tacón: 100mm (10cm)<br>
-                  • Material: Charol negro italiano<br>
-                  • Suela: Cuero premium<br>
-                  • Plantilla: Acolchada para mayor confort<br>
+                  El modelo Brigitte 100mm es un zapato de tacón clásico
+                  elaborado en charol negro de alta calidad. Su silueta
+                  atemporal y elegante lo convierte en la pieza perfecta para
+                  cualquier ocasión especial.
+                  <br /><br />
+                  • Altura del tacón: 100mm (10cm)<br />
+                  • Material: Charol negro italiano<br />
+                  • Suela: Cuero premium<br />
+                  • Plantilla: Acolchada para mayor confort<br />
                   • Hecho a mano por artesanos expertos
                 </p>
               </div>
@@ -164,13 +417,13 @@
               </button>
               <div class="accordion-content">
                 <p style="line-height: 1.7; color: #666;">
-                  <strong>Envío:</strong><br>
-                  • Envío gratuito en compras superiores a $500<br>
-                  • Entrega estimada: 3-5 días hábiles<br>
-                  • Envío express disponible<br>
-                  <br>
-                  <strong>Devoluciones:</strong><br>
-                  • 30 días para devoluciones gratuitas<br>
+                  <strong>Envío:</strong><br />
+                  • Envío gratuito en compras superiores a $500<br />
+                  • Entrega estimada: 3-5 días hábiles<br />
+                  • Envío express disponible<br />
+                  <br />
+                  <strong>Devoluciones:</strong><br />
+                  • 30 días para devoluciones gratuitas<br />
                   • Producto debe estar sin usar y en su empaque original
                 </p>
               </div>
@@ -178,14 +431,19 @@
 
             <div class="accordion-item">
               <button class="accordion-header" onclick="toggleAccordion(this)">
-                <span style="font-weight: 600;">Discover More From This Family</span>
+                <span style="font-weight: 600;"
+                  >Discover More From This Family</span
+                >
                 <span class="accordion-icon">›</span>
               </button>
               <div class="accordion-content">
                 <p style="line-height: 1.7; color: #666;">
-                  Explora otros modelos de la colección Brigitte en diferentes alturas y materiales.
-                  <br><br>
-                  <a href="#" style="color: #222; text-decoration: underline;">Ver colección completa</a>
+                  Explora otros modelos de la colección Brigitte en diferentes
+                  alturas y materiales.
+                  <br /><br />
+                  <a href="#" style="color: #222; text-decoration: underline;"
+                    >Ver colección completa</a
+                  >
                 </p>
               </div>
             </div>
@@ -197,9 +455,12 @@
               </button>
               <div class="accordion-content">
                 <p style="line-height: 1.7; color: #666;">
-                  Agenda una cita privada en nuestro showroom para una experiencia personalizada.
-                  <br><br>
-                  <a href="#" style="color: #222; text-decoration: underline;">Reservar cita</a>
+                  Agenda una cita privada en nuestro showroom para una
+                  experiencia personalizada.
+                  <br /><br />
+                  <a href="#" style="color: #222; text-decoration: underline;"
+                    >Reservar cita</a
+                  >
                 </p>
               </div>
             </div>
@@ -211,10 +472,11 @@
               </button>
               <div class="accordion-content">
                 <p style="line-height: 1.7; color: #666;">
-                  ¿Tienes alguna pregunta? Nuestro equipo está aquí para ayudarte.
-                  <br><br>
-                  Email: info@jacquelinemoncayo.com<br>
-                  WhatsApp: +593 99 999 9999<br>
+                  ¿Tienes alguna pregunta? Nuestro equipo está aquí para
+                  ayudarte.
+                  <br /><br />
+                  Email: info@jacquelinemoncayo.com<br />
+                  WhatsApp: +593 99 999 9999<br />
                   Instagram: @jacquelinemoncayo
                 </p>
               </div>
@@ -223,16 +485,50 @@
 
           <!-- Similar Products Tab -->
           <div class="related-tabs" style="margin-top: 40px;">
-            <div style="display: flex; gap: 30px; border-bottom: 2px solid #eee; margin-bottom: 20px;">
-              <button class="tab-btn active" onclick="switchTab('similar', this)" style="padding: 12px 0; border: none; background: none; font-size: 1rem; font-weight: 600; cursor: pointer; border-bottom: 2px solid #222; margin-bottom: -2px;">
+            <div
+              style="
+                display: flex;
+                gap: 30px;
+                border-bottom: 2px solid #eee;
+                margin-bottom: 20px;
+              "
+            >
+              <button
+                class="tab-btn active"
+                onclick="switchTab('similar', this)"
+                style="
+                  padding: 12px 0;
+                  border: none;
+                  background: none;
+                  font-size: 1rem;
+                  font-weight: 600;
+                  cursor: pointer;
+                  border-bottom: 2px solid #222;
+                  margin-bottom: -2px;
+                "
+              >
                 You may also like
               </button>
-              <button class="tab-btn" onclick="switchTab('recent', this)" style="padding: 12px 0; border: none; background: none; font-size: 1rem; color: #666; cursor: pointer;">
+              <button
+                class="tab-btn"
+                onclick="switchTab('recent', this)"
+                style="
+                  padding: 12px 0;
+                  border: none;
+                  background: none;
+                  font-size: 1rem;
+                  color: #666;
+                  cursor: pointer;
+                "
+              >
                 Recently viewed
               </button>
             </div>
             <div id="similarProducts" class="tab-content">
-              <div class="products" style="grid-template-columns: repeat(3, 1fr); gap: 20px;">
+              <div
+                class="products"
+                style="grid-template-columns: repeat(3, 1fr); gap: 20px;"
+              >
                 <div class="product-card">
                   <img src="img/z-1.webp" alt="Similar product" />
                   <div class="product-info">
@@ -260,7 +556,9 @@
               </div>
             </div>
             <div id="recentProducts" class="tab-content" style="display: none;">
-              <p style="color: #666; text-align: center; padding: 40px 0;">No has visto otros productos recientemente.</p>
+              <p style="color: #666; text-align: center; padding: 40px 0;">
+                No has visto otros productos recientemente.
+              </p>
             </div>
           </div>
         </div>
@@ -284,83 +582,83 @@
     <script>
       // Change main product image
       function changeMainImage(src) {
-        document.getElementById('mainProductImage').src = src;
+        document.getElementById("mainProductImage").src = src;
         // Update active thumbnail
-        document.querySelectorAll('.thumbnail').forEach(thumb => {
-          thumb.classList.remove('active');
+        document.querySelectorAll(".thumbnail").forEach((thumb) => {
+          thumb.classList.remove("active");
         });
-        event.target.classList.add('active');
+        event.target.classList.add("active");
       }
 
       // Select color
       function selectColor(color, element) {
-        document.getElementById('selectedColor').textContent = color;
-        document.querySelectorAll('.color-btn').forEach(btn => {
-          btn.classList.remove('active');
-          btn.querySelector('.color-checkmark').style.display = 'none';
+        document.getElementById("selectedColor").textContent = color;
+        document.querySelectorAll(".color-btn").forEach((btn) => {
+          btn.classList.remove("active");
+          btn.querySelector(".color-checkmark").style.display = "none";
         });
-        element.classList.add('active');
-        element.querySelector('.color-checkmark').style.display = 'block';
+        element.classList.add("active");
+        element.querySelector(".color-checkmark").style.display = "block";
       }
 
       // Select size
       let selectedSize = null;
       function selectSize(size, element) {
         selectedSize = size;
-        document.querySelectorAll('.size-btn').forEach(btn => {
-          btn.classList.remove('active');
+        document.querySelectorAll(".size-btn").forEach((btn) => {
+          btn.classList.remove("active");
         });
-        element.classList.add('active');
+        element.classList.add("active");
         // Update button text
-        document.querySelector('.btn-add-cart').textContent = 'ADD TO CART';
+        document.querySelector(".btn-add-cart").textContent = "ADD TO CART";
       }
 
       // Add to cart
       function addToCart() {
         if (!selectedSize) {
-          alert('Por favor selecciona una talla');
+          alert("Por favor selecciona una talla");
           return;
         }
-        alert('Producto agregado al carrito!\nTalla: ' + selectedSize);
+        alert("Producto agregado al carrito!\nTalla: " + selectedSize);
       }
 
       // Toggle accordion
       function toggleAccordion(element) {
         const item = element.parentElement;
-        const content = item.querySelector('.accordion-content');
-        const icon = element.querySelector('.accordion-icon');
-        
-        const isOpen = content.style.display === 'block';
-        
+        const content = item.querySelector(".accordion-content");
+        const icon = element.querySelector(".accordion-icon");
+
+        const isOpen = content.style.display === "block";
+
         if (isOpen) {
-          content.style.display = 'none';
-          icon.style.transform = 'rotate(0deg)';
+          content.style.display = "none";
+          icon.style.transform = "rotate(0deg)";
         } else {
-          content.style.display = 'block';
-          icon.style.transform = 'rotate(90deg)';
+          content.style.display = "block";
+          icon.style.transform = "rotate(90deg)";
         }
       }
 
       // Switch tabs
       function switchTab(tabName, element) {
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-          btn.classList.remove('active');
-          btn.style.borderBottom = 'none';
-          btn.style.color = '#666';
+        document.querySelectorAll(".tab-btn").forEach((btn) => {
+          btn.classList.remove("active");
+          btn.style.borderBottom = "none";
+          btn.style.color = "#666";
         });
-        element.classList.add('active');
-        element.style.borderBottom = '2px solid #222';
-        element.style.color = '#222';
-        element.style.fontWeight = '600';
+        element.classList.add("active");
+        element.style.borderBottom = "2px solid #222";
+        element.style.color = "#222";
+        element.style.fontWeight = "600";
 
-        document.querySelectorAll('.tab-content').forEach(content => {
-          content.style.display = 'none';
+        document.querySelectorAll(".tab-content").forEach((content) => {
+          content.style.display = "none";
         });
-        
-        if (tabName === 'similar') {
-          document.getElementById('similarProducts').style.display = 'block';
+
+        if (tabName === "similar") {
+          document.getElementById("similarProducts").style.display = "block";
         } else {
-          document.getElementById('recentProducts').style.display = 'block';
+          document.getElementById("recentProducts").style.display = "block";
         }
       }
     </script>

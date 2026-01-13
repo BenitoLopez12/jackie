@@ -1,12 +1,4 @@
-/* Filtros acordeón transición */
-.filtros-acordeon {
-  transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.4s;
-}
-.filtros-acordeon.abierto {
-  max-height: 900px;
-  opacity: 1;
-  overflow: visible;
-}
+
 /* Reset básico */
 * {
   margin: 0;
@@ -41,24 +33,24 @@ header.scrolled {
 }
 
 .navbar {
-    width: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 100px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .navbar ul {
-  display: flex;
-  width: 100%;
+  
   align-items: center;
   justify-content: space-around;
   list-style: none;
   gap: 40px;
 }
-
+.navbar ul li {
+  margin-bottom: 10px;
+}
 .navbar a {
   color: #fff;
   text-decoration: none;
@@ -76,7 +68,12 @@ header.scrolled {
   font-size: 1.5rem;
   letter-spacing: 0.3em;
   color: #fff;
-  text-align: center;
+  text-align: center; 
+  position: relative;
+  width: 100%;
+}
+.logo img {
+
 }
 
 .hero {
@@ -90,9 +87,13 @@ header.scrolled {
 }
 
 main {
+  margin: 0 auto;
+}
+
+.content{
+  padding: 40px 20px 0 20px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px 0 20px;
 }
 
 h2 {
@@ -181,9 +182,13 @@ hr {
 footer {
   width: 100%;
   margin-top: 30px;
-  padding: 30px 0 10px 0;
-  background: #fff;
+  padding: 30px;
+  background: #000;
   text-align: center;
+  color: #fff;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 .footer-links {
@@ -191,10 +196,11 @@ footer {
   flex-direction: column;
   gap: 8px;
   margin-bottom: 20px;
+  justify-content: flex-start;
 }
 
 .footer-links a {
-  color: #222;
+  color: #fff;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.2s;
@@ -206,7 +212,6 @@ footer {
 
 .copyright {
   font-size: 0.9rem;
-  color: #444;
 }
 
 /* Product Detail Page Styles */
@@ -377,5 +382,205 @@ footer {
   
   .size-grid {
     grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+/* Nuevos estilos para el diseño dinámico de la tienda */
+.shop-products-dynamic {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.product-link:hover {
+  transform: translateY(-5px);
+}
+
+/* Sección Hero de productos destacados */
+.featured-products-hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.hero-product-large .product-card {
+  height: 600px;
+}
+
+.hero-product-large .product-card img {
+  height: 500px;
+  object-fit: cover;
+}
+
+.hero-products-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero-products-side .product-card {
+  height: 285px;
+}
+
+.hero-products-side .product-card img {
+  height: 220px;
+}
+
+/* Grid asimétrico */
+.products-asymmetric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.card-wide {
+  grid-column: span 2;
+}
+
+.card-tall {
+  grid-row: span 2;
+}
+
+.card-tall .product-card img {
+  height: 480px;
+}
+
+.card-wide .product-card img {
+  height: 280px;
+}
+
+/* Diseño en mosaico */
+.products-mosaic {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.mosaic-row {
+  display: flex;
+  gap: 25px;
+  align-items: stretch;
+}
+
+.mosaic-small {
+  flex: 1;
+}
+
+.mosaic-medium {
+  flex: 1.5;
+}
+
+.mosaic-large {
+  flex: 2;
+}
+
+.mosaic-small .product-card img {
+  height: 250px;
+}
+
+.mosaic-medium .product-card img {
+  height: 300px;
+}
+
+.mosaic-large .product-card img {
+  height: 350px;
+}
+
+/* Grid tradicional para productos adicionales */
+.products-traditional-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* Efectos hover mejorados para los productos */
+.product-card:hover {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Responsive design para el nuevo layout */
+@media (max-width: 1200px) {
+  .featured-products-hero {
+    grid-template-columns: 1.5fr 1fr;
+  }
+  
+  .products-asymmetric-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .products-traditional-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .featured-products-hero {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-product-large .product-card {
+    height: 450px;
+  }
+  
+  .hero-product-large .product-card img {
+    height: 350px;
+  }
+  
+  .hero-products-side {
+    flex-direction: row;
+  }
+  
+  .products-asymmetric-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .products-traditional-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .mosaic-row {
+    flex-direction: column;
+  }
+  
+  .card-tall {
+    grid-row: span 1;
+  }
+  
+  .card-tall .product-card img {
+    height: 320px;
+  }
+}
+
+@media (max-width: 600px) {
+  .products-asymmetric-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .products-traditional-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-wide {
+    grid-column: span 1;
+  }
+  
+  .hero-products-side {
+    flex-direction: column;
   }
 }
