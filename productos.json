@@ -1,0 +1,65 @@
+[
+  {
+    "id": "ante-glitter-negro",
+      "producto": "Ante Glitter Negro T/Nácar",
+      "coleccion": "Alambra",
+      "bodega": "Consignación Guatemala",
+    "precio": 450,
+    "descripcion": "MATERIALES: Ante Glitter Negro, de PÉREZ HERNÁNDEZ, adorno perla en punta del zapato\nTACON: Envelope láser nácar de CRESPI sobre envelope forrado.",
+    "img": "img/shop6.jpg"
+  },
+  {
+    "id": "ante-metalico-cafe",
+      "producto": "Ante Metálico Café (Ash y 2861) T/Nácar",
+      "coleccion": "Alambra",
+      "bodega": "Showroom Guayaquil",
+    "precio": 450,
+    "descripcion": "MATERIALES: Ante metálico Ash, de PÉREZ HERNÁNDEZ, Ante metálico Comando de PÉREZ HERNÁNDEZ. Puntera, puente y envelope en ante metálico Comando\nTACÓN: Envelope láser nácar sobre el envelope forrado",
+    "img": "img/shop4.jpg"
+  },
+  {
+    "id": "ante-metalico-marfil-flor",
+      "producto": "Ante Metálico Marfil con Flor T/Nácar",
+      "coleccion": "Alambra",
+      "bodega": "Joyería Sazzing",
+    "precio": 450,
+    "descripcion": "MATERIALES: Ante Metalico Marfil, de PÉREZ HERNÁNDEZ, adorno perla en punta del zapato\nTACON: Envelope láser nácar de CRESPI sobre envelope forrado.\nACCESORIO: Flor de 4 tonos",
+    "img": "img/shop3.jpg"
+  },
+  {
+    "id": "jazmin-blue-noir",
+      "producto": "Jazmín, Blue Noir T/Plata",
+      "coleccion": "Toledo",
+      "bodega": "Showroom Ambato",
+    "precio": 420,
+    "descripcion": "MATERIAL: Textil Denim (Jean), tejido con hilo metálico color plata\nTACON: forrado de estaño con pieza de filigrana",
+    "img": "img/shop7.jpg"
+  },
+  {
+    "id": "kinder-clasico",
+      "producto": "Kinder Clásico, Laminado en Oro T/Nácar",
+      "coleccion": "Alambra",
+      "bodega": "Consignación Guatemala",
+    "precio": 450,
+    "descripcion": "MATERIALES: Tejido Kinder, C-105 Azafrán, de Juan Poveda, laminado Oro, de REVECUR. Puntera, ribetes, puente y envelope en laminado Oro\nTACON: Envelope láser nácar sobre",
+    "img": "img/shop5.jpg"
+  },
+  {
+    "id": "piton-oro",
+      "producto": "Pitón Oro Laminado Oro T/Oro Bajo",
+      "coleccion": "Barroco",
+      "bodega": "Showroom Ambato",
+    "precio": 595,
+    "descripcion": "MATERIAL: Piel de piton mostaza, Laminado en oro\nTACON: Madera tallado y bañado en oro ",
+    "img": "img/shop9.jpg"
+  },
+  {
+    "id": "textil-metal-oro",
+      "producto": "Textil Metal Oro T/Oro",
+      "coleccion": "Barroco",
+      "bodega": "Consignación Guatemala",
+    "precio": 550,
+    "descripcion": "MATERIAL: Tejano metal oro, laminado oro\nTACON: Madera tallado y bañado en oro ",
+    "img": "img/shop8.jpg"
+  }
+]
