@@ -82,7 +82,7 @@ fetch("productos.json")
 
     // Descripción (en el acordeón de detalles)
     const accs = document.querySelectorAll(
-      ".accordion-item .accordion-content p"
+      ".accordion-item .accordion-content p",
     );
     if (accs && accs[0])
       accs[0].innerHTML = producto.descripcion.replace(/\n/g, "<br>");
@@ -120,8 +120,31 @@ fetch("productos.json")
           alert("Por favor, selecciona una talla");
           return;
         }
-        // Aquí iría la lógica para añadir el producto al carrito
-        alert("¡Producto agregado al carrito!\nTalla: " + selectedSize);
+        // Añadir producto al carrito en localStorage
+        try {
+          const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+          const existing = cart.find(
+            (i) => i.id === producto.id && i.size == selectedSize,
+          );
+          if (existing) {
+            existing.qty = (existing.qty || 1) + 1;
+          } else {
+            cart.push({
+              id: producto.id,
+              producto: producto.producto,
+              price: producto.precio,
+              size: selectedSize,
+              qty: 1,
+              img: producto.img,
+            });
+          }
+          localStorage.setItem("cart", JSON.stringify(cart));
+          // Redirigir al carrito para continuar la simulación
+          window.location.href = "cart.html";
+        } catch (e) {
+          console.error("Error añadiendo al carrito:", e);
+          alert("No se pudo añadir el producto al carrito.");
+        }
       };
     }
   });

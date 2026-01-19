@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pago | Jacqueline Moncayo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <ul>
+          <li><a href="index.html">INICIO</a></li>
+          <li><a href="shop.html">TIENDA</a></li>
+        </ul>
+        <div class="logo" style="text-align: center;">
+          <img src="img/logo.webp" alt="Logo" style="height: 60px;" />
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <h1>Pagar</h1>
+      <div id="checkoutContainer"></div>
+    </main>
+
+    <script>
+      function formatPrice(n) {
+        return "$" + n.toFixed(2);
+      }
+
+      function renderCheckout() {
+        const container = document.getElementById("checkoutContainer");
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        if (!cart.length) {
+          container.innerHTML =
+            "<p>Tu carrito está vacío. <a href='shop.html'>Ir a la tienda</a></p>";
+          return;
+        }
+        let subtotal = 0;
+        const summary = cart
+          .map((i) => {
+            subtotal += i.price * i.qty;
+            return `<div style='display:flex;gap:12px;margin-bottom:8px;'><img src='${
+              i.img
+            }' style='width:64px;height:64px;object-fit:cover;'/><div><strong>${
+              i.producto
+            }</strong><div>Talla: ${i.size} x ${
+              i.qty
+            }</div></div><div style='margin-left:auto;'>${formatPrice(
+              i.price * i.qty,
+            )}</div></div>`;
+          })
+          .join("");
+        const shipping = subtotal > 0 ? 10 : 0;
+        const total = subtotal + shipping;
+
+        container.innerHTML = `
+          <div style='display:grid;grid-template-columns:1fr 380px;gap:24px;'>
+            <div>
+              <form id='checkoutForm'>
+                <h3>Datos de envío</h3>
+                <label>Nombre completo<br/><input name='name' required /></label><br/>
+                <label>Email<br/><input name='email' type='email' required /></label><br/>
+                <label>Dirección<br/><input name='address' required /></label><br/>
+                <label>Ciudad<br/><input name='city' required /></label><br/>
+                <label>País<br/><input name='country' required /></label><br/>
+
+                <h3>Pago (simulado)</h3>
+                <label>Número de tarjeta<br/><input name='card' required /></label><br/>
+                <label>Expiración<br/><input name='exp' required /></label><br/>
+                <label>CVV<br/><input name='cvv' required /></label><br/>
+
+                <button type='submit' class='btn' style='margin-top:12px;'>Confirmar pedido</button>
+              </form>
+            </div>
+            <div>
+              <h3>Resumen</h3>
+              <div>${summary}</div>
+              <div style='margin-top:12px;'>Subtotal: <strong>${formatPrice(
+                subtotal,
+              )}</strong></div>
+              <div>Envío: <strong>${formatPrice(shipping)}</strong></div>
+              <div style='margin-top:8px;'>Total: <strong>${formatPrice(
+                total,
+              )}</strong></div>
+            </div>
+          </div>
+        `;
+
+        document
+          .getElementById("checkoutForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            const form = e.target;
+            const data = {
+              name: form.name.value,
+              email: form.email.value,
+              address: form.address.value,
+              city: form.city.value,
+              country: form.country.value,
+            };
+            const order = {
+              id: "ORD" + Date.now(),
+              items: cart,
+              customer: data,
+              total: total,
+              date: new Date().toISOString(),
+            };
+            // Guardar orden simulada y limpiar carrito
+            localStorage.setItem("lastOrder", JSON.stringify(order));
+            localStorage.removeItem("cart");
+            window.location.href = "confirmation.html?orderId=" + order.id;
+          });
+      }
+
+      renderCheckout();
+    </script>
+  </body>
+</html>

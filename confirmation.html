@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirmación | Jacqueline Moncayo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <ul>
+          <li><a href="index.html">INICIO</a></li>
+          <li><a href="shop.html">TIENDA</a></li>
+        </ul>
+        <div class="logo" style="text-align: center;">
+          <img src="img/logo.webp" alt="Logo" style="height: 60px;" />
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <h1>Gracias por tu compra</h1>
+      <div id="confirmContainer"></div>
+      <div style="margin-top: 20px;">
+        <a href="shop.html" class="btn">Volver a la tienda</a>
+      </div>
+    </main>
+
+    <script>
+      function formatPrice(n) {
+        return "$" + n.toFixed(2);
+      }
+      function renderConfirmation() {
+        const order = JSON.parse(localStorage.getItem("lastOrder") || "null");
+        const container = document.getElementById("confirmContainer");
+        if (!order) {
+          container.innerHTML = "<p>No se encontró ninguna orden reciente.</p>";
+          return;
+        }
+        const itemsHtml = order.items
+          .map(
+            (i) =>
+              `<div style='display:flex;gap:12px;align-items:center;margin-bottom:8px;'><img src='${
+                i.img
+              }' style='width:64px;height:64px;object-fit:cover;'/><div><strong>${
+                i.producto
+              }</strong><div>Talla: ${i.size} x ${
+                i.qty
+              }</div></div><div style='margin-left:auto;'>${formatPrice(
+                i.price * i.qty,
+              )}</div></div>`,
+          )
+          .join("");
+        container.innerHTML = `
+          <p>Tu número de orden es <strong>${order.id}</strong></p>
+          <div><strong>Resumen</strong></div>
+          <div style='margin-top:12px;'>${itemsHtml}</div>
+          <div style='margin-top:12px;'>Total pagado: <strong>${formatPrice(
+            order.total,
+          )}</strong></div>
+          <div style='margin-top:8px;'>Enviado a: ${order.customer.name}, ${
+          order.customer.address
+        }, ${order.customer.city}, ${order.customer.country}</div>
+        `;
+        // Opcional: conservar orden en localStorage o mover a histórico
+      }
+
+      renderConfirmation();
+    </script>
+  </body>
+</html>
