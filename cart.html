@@ -3,110 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carrito | Jacqueline Moncayo</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <div class="navbar">
-        <ul>
-          <li><a href="index.html">INICIO</a></li>
-          <li><a href="shop.html">TIENDA</a></li>
-          <li><a href="about.html">ACERCA DE</a></li>
-        </ul>
-        <div class="logo" style="text-align:center;">
-          <img src="img/logo.webp" alt="Logo" style="height:60px;" />
-        </div>
-      </div>
-    </header>
-
-    <main class="content">
-      <h1 style="margin-bottom:20px;">Tu carrito</h1>
-      <div id="cartContainer"></div>
-      <div style="margin-top:20px;">
-        <a href="shop.html" class="btn">Seguir comprando</a>
-        <button id="checkoutBtn" class="btn" style="margin-left:12px;">Continuar a pagar</button>
-      </div>
-    </main>
-
-    <script>
-      function formatPrice(n) { return "$" + n.toFixed(2); }
-
-      function renderCart() {
-        const container = document.getElementById("cartContainer");
-        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-        container.innerHTML = "";
-        if (!cart.length) {
-          container.innerHTML = "<p>Tu carrito está vacío. <a href='shop.html'>Ir a la tienda</a></p>";
-          document.getElementById('checkoutBtn').disabled = true;
-          return;
-        }
-        document.getElementById('checkoutBtn').disabled = false;
-
-        const table = document.createElement('table');
-        table.style.width = '100%';
-        table.innerHTML = '<thead><tr><th>Producto</th><th>Talla</th><th>Cantidad</th><th>Precio</th><th>Subtotal</th><th></th></tr></thead>';
-        const tbody = document.createElement('tbody');
-
-        let subtotal = 0;
-        cart.forEach((item, idx) => {
-          const row = document.createElement('tr');
-          const itemSubtotal = item.price * item.qty;
-          subtotal += itemSubtotal;
-          row.innerHTML = `
-            <td style="display:flex;gap:12px;align-items:center;"><img src="${item.img}" style="width:64px;height:64px;object-fit:cover;"/><div>${item.producto}</div></td>
-            <td>${item.size}</td>
-            <td><input type="number" min="1" value="${item.qty}" data-idx="${idx}" class="qty-input" style="width:64px;"/></td>
-            <td>${formatPrice(item.price)}</td>
-            <td>${formatPrice(itemSubtotal)}</td>
-            <td><button class="remove-btn" data-idx="${idx}">Eliminar</button></td>
-          `;
-          tbody.appendChild(row);
-        });
-
-        table.appendChild(tbody);
-        container.appendChild(table);
-
-        const totals = document.createElement('div');
-        totals.style.marginTop = '16px';
-        const shipping = subtotal > 0 ? 10 : 0;
-        const total = subtotal + shipping;
-        totals.innerHTML = `<div>Subtotal: <strong>${formatPrice(subtotal)}</strong></div><div>Envío: <strong>${formatPrice(shipping)}</strong></div><div style="margin-top:8px;">Total: <strong>${formatPrice(total)}</strong></div>`;
-        container.appendChild(totals);
-
-        // Attach events
-        container.querySelectorAll('.qty-input').forEach(input => {
-          input.addEventListener('change', (e) => {
-            const i = Number(e.target.dataset.idx);
-            const val = Math.max(1, Number(e.target.value));
-            cart[i].qty = val;
-            localStorage.setItem('cart', JSON.stringify(cart));
-            renderCart();
-          });
-        });
-        container.querySelectorAll('.remove-btn').forEach(btn => {
-          btn.addEventListener('click', (e) => {
-            const i = Number(e.target.dataset.idx);
-            cart.splice(i,1);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            renderCart();
-          });
-        });
-      }
-
-      document.getElementById('checkoutBtn').addEventListener('click', () => {
-        window.location.href = 'checkout.html';
-      });
-
-      renderCart();
-    </script>
-  </body>
-</html>
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carrito - Jacqueline Moncayo</title>
     <link rel="stylesheet" href="styles.css" />
     <link
@@ -119,9 +15,9 @@
       <div class="navbar">
         <ul>
           <li><a href="index.html">INICIO</a></li>
+          <!-- <li><a href="best.html">MÁS VENDIDOS</a></li> -->
           <li><a href="shop.html">TIENDA</a></li>
-          <li><a href="cart.html">CARRITO</a></li>
-          <li><a href="about.html">ACERCA DE</a></li>
+          <li><a href="about.html">NOSOTROS</a></li>
         </ul>
         <div class="logo" style="text-align: center;">
           <img
@@ -134,11 +30,24 @@
     </header>
     <div class="hero"></div>
     <main class="content">
-      <h1>CARRITO DE COMPRAS</h1>
-      <div id="cart-items"></div>
-      <div id="cart-total"></div>
-      <button id="checkout-btn" class="btn-add-cart">PROCEDER AL PAGO</button>
+      <h1 style="margin-bottom: 12px;">CARRITO DE COMPRAS</h1>
+      <hr />
+
+      <section class="product-detail-container" style="margin-top: 20px;">
+        <div class="product-images">
+          <div id="cartList">
+            <!-- Items se renderearán aquí -->
+          </div>
+        </div>
+
+        <div class="product-details-info">
+          <div id="orderSummary" style="padding-top: 20px;">
+            <!-- Resumen y botón -->
+          </div>
+        </div>
+      </section>
     </main>
+
     <footer>
       <div style="display: flex; justify-content: space-between; width: 100%;">
         <div class="footer-links">
@@ -156,9 +65,135 @@
         COPYRIGHT © 2025 JACQUELINE MONCAYO. Todos los derechos reservados.
       </div>
     </footer>
+
     <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
-    <script src="shopify-api.js"></script>
-    <script src="cart.js"></script>
+    <script src="script.js"></script>
+    <script>
+      function formatPrice(n) {
+        return "$" + n.toFixed(2);
+      }
+
+      function renderCart() {
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const list = document.getElementById("cartList");
+        const summary = document.getElementById("orderSummary");
+        list.innerHTML = "";
+        summary.innerHTML = "";
+
+        if (!cart.length) {
+          list.innerHTML =
+            '<p>Tu carrito está vacío. <a href="shop.html">Ir a la tienda</a></p>';
+          return;
+        }
+
+        // Left: lista de items
+        const left = document.createElement("div");
+        left.style.display = "flex";
+        left.style.flexDirection = "column";
+        left.style.gap = "16px";
+
+        cart.forEach((item, idx) => {
+          const card = document.createElement("div");
+          card.style.display = "flex";
+          card.style.gap = "16px";
+          card.style.alignItems = "center";
+          card.style.padding = "12px";
+          card.style.background = "#fff";
+          card.style.border = "1px solid #eee";
+          card.style.borderRadius = "6px";
+
+          const img = document.createElement("img");
+          img.src = item.img;
+          img.style.width = "120px";
+          img.style.height = "120px";
+          img.style.objectFit = "cover";
+
+          const info = document.createElement("div");
+          info.style.flex = "1";
+          info.innerHTML = `<div style="font-weight:600;">${item.producto}</div><div style="color:#666;margin-top:6px;">Talla: ${item.size}</div>`;
+
+          const qty = document.createElement("div");
+          qty.innerHTML = `<input type="number" min="1" value="${item.qty}" data-idx="${idx}" style="width:72px;padding:8px;border:1px solid #ddd;border-radius:4px;"/>`;
+
+          const price = document.createElement("div");
+          price.style.width = "120px";
+          price.style.textAlign = "right";
+          price.innerHTML = `<div>${formatPrice(
+            item.price,
+          )}</div><div style="font-weight:600;margin-top:6px;">${formatPrice(
+            item.price * item.qty,
+          )}</div>`;
+
+          const remove = document.createElement("button");
+          remove.textContent = "Eliminar";
+          remove.className = "btn btn-link";
+          remove.style.marginLeft = "12px";
+          remove.dataset.idx = idx;
+          remove.addEventListener("click", () => {
+            cart.splice(idx, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+          });
+
+          card.appendChild(img);
+          card.appendChild(info);
+          card.appendChild(qty);
+          card.appendChild(price);
+          card.appendChild(remove);
+
+          left.appendChild(card);
+        });
+
+        list.appendChild(left);
+
+        // Right: resumen
+        let subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const shipping = subtotal > 0 ? 10 : 0;
+        const total = subtotal + shipping;
+
+        const cardSum = document.createElement("div");
+        cardSum.style.position = "sticky";
+        cardSum.style.top = "140px";
+        cardSum.style.padding = "20px";
+        cardSum.style.border = "1px solid #eee";
+        cardSum.style.borderRadius = "8px";
+        cardSum.style.background = "#fff";
+        cardSum.innerHTML = `
+          <div style="font-size:1.1rem;font-weight:600;margin-bottom:12px;">Resumen del pedido</div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><div>Subtotal</div><div>${formatPrice(
+            subtotal,
+          )}</div></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;"><div>Envío</div><div>${formatPrice(
+            shipping,
+          )}</div></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:16px;font-weight:700;"><div>Total</div><div>${formatPrice(
+            total,
+          )}</div></div>
+          <div style="display:flex;gap:8px;">
+            <a href="shop.html" class="btn btn-outline">Seguir comprando</a>
+            <button id="goCheckout" class="btn btn-primary" style="margin-left:8px;">Proceder al pago</button>
+          </div>
+        `;
+
+        summary.appendChild(cardSum);
+
+        // Attach qty change events (delegation)
+        list.querySelectorAll('input[type="number"]').forEach((input) => {
+          input.addEventListener("change", (e) => {
+            const i = Number(e.target.dataset.idx);
+            const val = Math.max(1, Number(e.target.value));
+            cart[i].qty = val;
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+          });
+        });
+
+        document.getElementById("goCheckout").addEventListener("click", () => {
+          window.location.href = "checkout.html";
+        });
+      }
+
+      renderCart();
+    </script>
   </body>
-</html></content>
-<parameter name="filePath">d:\laragon\www\jackie\cart.html
+</html>

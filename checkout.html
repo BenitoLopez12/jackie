@@ -5,49 +5,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pago | Jacqueline Moncayo</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
       <div class="navbar">
         <ul>
           <li><a href="index.html">INICIO</a></li>
+          <!-- <li><a href="best.html">MÁS VENDIDOS</a></li> -->
           <li><a href="shop.html">TIENDA</a></li>
+          <li><a href="about.html">NOSOTROS</a></li>
         </ul>
         <div class="logo" style="text-align: center;">
-          <img src="img/logo.webp" alt="Logo" style="height: 60px;" />
+          <img
+            src="img/logo.webp"
+            alt="Logo de Jacqueline Moncayo"
+            style="height: 60px;"
+          />
         </div>
       </div>
     </header>
-
+    <div class="hero"></div>
     <main class="content">
-      <h1>Pagar</h1>
-      <div id="checkoutContainer"></div>
+      <h1 style="margin-bottom: 12px;">PAGAR</h1>
+      <hr />
+
+      <section class="product-detail-container" style="margin-top: 20px;">
+        <div class="product-images">
+          <div id="checkoutFormWrap"><!-- Formulario se renderiza aquí --></div>
+        </div>
+
+        <div class="product-details-info">
+          <div id="checkoutSummary" style="padding-top: 20px;">
+            <!-- Resumen -->
+          </div>
+        </div>
+      </section>
     </main>
 
+    <footer>
+      <div style="display: flex; justify-content: space-between; width: 100%;">
+        <div class="footer-links">
+          <a href="#">TABLA DE TALLAS</a>
+          <a href="#">ENVÍOS</a>
+          <a href="#">SÍGUENOS EN IG</a>
+        </div>
+        <div class="footer-links" style="align-items: flex-end;">
+          <a href="#">CONTACTO</a>
+          <a href="#">JAQUELINEMONCAYOMKY@GMAIL.COM</a>
+          <a href="#">WhatsApp (593) 93 914 3035</a>
+        </div>
+      </div>
+      <div class="copyright">
+        COPYRIGHT © 2025 JACQUELINE MONCAYO. Todos los derechos reservados.
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
     <script>
       function formatPrice(n) {
         return "$" + n.toFixed(2);
       }
 
       function renderCheckout() {
-        const container = document.getElementById("checkoutContainer");
         const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const wrap = document.getElementById("checkoutFormWrap");
+        const summary = document.getElementById("checkoutSummary");
+        wrap.innerHTML = "";
+        summary.innerHTML = "";
+
         if (!cart.length) {
-          container.innerHTML =
-            "<p>Tu carrito está vacío. <a href='shop.html'>Ir a la tienda</a></p>";
+          wrap.innerHTML =
+            '<p>Tu carrito está vacío. <a href="shop.html">Ir a la tienda</a></p>';
           return;
         }
+
+        // Left: formulario
+        const formCol = document.createElement("div");
+        formCol.innerHTML = `
+          <form id="checkoutForm" style="display:flex;flex-direction:column;gap:12px;">
+            <div>
+              <label style="font-weight:600;">Nombre completo</label>
+              <input name="name" required style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;" />
+            </div>
+            <div>
+              <label style="font-weight:600;">Email</label>
+              <input name="email" type="email" required style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;" />
+            </div>
+            <div>
+              <label style="font-weight:600;">Dirección</label>
+              <input name="address" required style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;" />
+            </div>
+            <div style="display:flex;gap:12px;">
+              <div style="flex:1">
+                <label style="font-weight:600;">Ciudad</label>
+                <input name="city" required style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;" />
+              </div>
+              <div style="width:160px;">
+                <label style="font-weight:600;">País</label>
+                <input name="country" required style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;" />
+              </div>
+            </div>
+
+            <div style="margin-top:8px;font-weight:600;">Pago (simulado)</div>
+            <div>
+              <input name="card" placeholder="Número de tarjeta" required style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;" />
+            </div>
+            <div style="display:flex;gap:12px;">
+              <input name="exp" placeholder="MM/AA" required style="flex:1;padding:10px;border:1px solid #ddd;border-radius:6px;" />
+              <input name="cvv" placeholder="CVV" required style="width:120px;padding:10px;border:1px solid #ddd;border-radius:6px;" />
+            </div>
+
+            <div>
+              <button type="submit" class="btn btn-primary">Confirmar pedido</button>
+            </div>
+          </form>
+        `;
+
+        // Right: resumen
         let subtotal = 0;
-        const summary = cart
+        const itemsHtml = cart
           .map((i) => {
             subtotal += i.price * i.qty;
-            return `<div style='display:flex;gap:12px;margin-bottom:8px;'><img src='${
+            return `<div style="display:flex;gap:12px;align-items:center;margin-bottom:8px;"><img src="${
               i.img
-            }' style='width:64px;height:64px;object-fit:cover;'/><div><strong>${
+            }" style="width:64px;height:64px;object-fit:cover;"/><div><strong>${
               i.producto
-            }</strong><div>Talla: ${i.size} x ${
+            }</strong><div style="color:#666;">Talla: ${i.size} x ${
               i.qty
-            }</div></div><div style='margin-left:auto;'>${formatPrice(
+            }</div></div><div style="margin-left:auto;">${formatPrice(
               i.price * i.qty,
             )}</div></div>`;
           })
@@ -55,38 +145,27 @@
         const shipping = subtotal > 0 ? 10 : 0;
         const total = subtotal + shipping;
 
-        container.innerHTML = `
-          <div style='display:grid;grid-template-columns:1fr 380px;gap:24px;'>
-            <div>
-              <form id='checkoutForm'>
-                <h3>Datos de envío</h3>
-                <label>Nombre completo<br/><input name='name' required /></label><br/>
-                <label>Email<br/><input name='email' type='email' required /></label><br/>
-                <label>Dirección<br/><input name='address' required /></label><br/>
-                <label>Ciudad<br/><input name='city' required /></label><br/>
-                <label>País<br/><input name='country' required /></label><br/>
-
-                <h3>Pago (simulado)</h3>
-                <label>Número de tarjeta<br/><input name='card' required /></label><br/>
-                <label>Expiración<br/><input name='exp' required /></label><br/>
-                <label>CVV<br/><input name='cvv' required /></label><br/>
-
-                <button type='submit' class='btn' style='margin-top:12px;'>Confirmar pedido</button>
-              </form>
-            </div>
-            <div>
-              <h3>Resumen</h3>
-              <div>${summary}</div>
-              <div style='margin-top:12px;'>Subtotal: <strong>${formatPrice(
-                subtotal,
-              )}</strong></div>
-              <div>Envío: <strong>${formatPrice(shipping)}</strong></div>
-              <div style='margin-top:8px;'>Total: <strong>${formatPrice(
-                total,
-              )}</strong></div>
-            </div>
-          </div>
+        const sumCard = document.createElement("div");
+        sumCard.style.padding = "20px";
+        sumCard.style.border = "1px solid #eee";
+        sumCard.style.borderRadius = "8px";
+        sumCard.style.background = "#fff";
+        sumCard.innerHTML = `
+          <div style="font-weight:600;margin-bottom:12px;">Resumen</div>
+          <div>${itemsHtml}</div>
+          <div style="margin-top:12px;display:flex;justify-content:space-between;"><div>Subtotal</div><div>${formatPrice(
+            subtotal,
+          )}</div></div>
+          <div style="display:flex;justify-content:space-between;"><div>Envío</div><div>${formatPrice(
+            shipping,
+          )}</div></div>
+          <div style="margin-top:8px;display:flex;justify-content:space-between;font-weight:700;"><div>Total</div><div>${formatPrice(
+            total,
+          )}</div></div>
         `;
+
+        wrap.appendChild(formCol);
+        summary.appendChild(sumCard);
 
         document
           .getElementById("checkoutForm")
@@ -107,7 +186,6 @@
               total: total,
               date: new Date().toISOString(),
             };
-            // Guardar orden simulada y limpiar carrito
             localStorage.setItem("lastOrder", JSON.stringify(order));
             localStorage.removeItem("cart");
             window.location.href = "confirmation.html?orderId=" + order.id;

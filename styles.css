@@ -131,6 +131,7 @@ header.scrolled {
 
 main {
   margin: 0 auto;
+  min-height: calc(100dvh - 350px);
 }
 
 .content{
@@ -382,6 +383,52 @@ footer {
   display: none;
   padding: 0 0 20px 0;
   font-size: 0.95rem;
+}
+
+/* Botones coherentes con el tema */
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.08s;
+}
+
+.btn-primary, .btn-add-cart {
+  background: #222;
+  color: #fff;
+  border: 1px solid #222;
+}
+
+.btn-primary:hover, .btn-add-cart:hover {
+  background: #111;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: #fff;
+  color: #222;
+  border: 1px solid #222;
+}
+
+.btn-outline:hover {
+  background: #f5f5f5;
+}
+
+.btn-link {
+  background: transparent;
+  color: #c00;
+  border: none;
+  padding: 6px 8px;
+  font-weight: 600;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
 }
 
 
