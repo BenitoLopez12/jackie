@@ -222,8 +222,8 @@ hr {
 .soon-box{
   width: 100%;
   padding:  60px;
-  padding-bottom: 400px;
-  background-image: url('img/soon.webp');
+  padding-bottom: 600px;
+  background-image: url('img/sofa-zpt.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -258,6 +258,8 @@ footer {
 
 .copyright {
   font-size: 0.9rem;
+  text-align: left;
+  margin-top: 20px;
 }
 
 /* Product Detail Page Styles */
